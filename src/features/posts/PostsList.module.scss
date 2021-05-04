@@ -1,0 +1,30 @@
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+.postExcerpt {
+  padding: 0.25rem 0.25rem;
+  border: 1px solid rgb(177, 174, 174);
+  border-radius: 7px;
+
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.postContent {
+  margin-top: 10px;
+}
+
+.postList .postExcerpt + .postExcerpt {
+  margin-top: 0.5rem;
+}
+
+.postExcerpt {
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
