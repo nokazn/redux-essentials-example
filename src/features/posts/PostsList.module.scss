@@ -1,8 +1,3 @@
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 5px;
-}
-
 .postExcerpt {
   padding: 0.25rem 0.25rem;
   border: 1px solid rgb(177, 174, 174);
@@ -18,8 +13,14 @@ h2 {
   margin-top: 10px;
 }
 
-.postList .postExcerpt + .postExcerpt {
-  margin-top: 0.5rem;
+.postList {
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  .postExcerpt + .postExcerpt {
+    margin-top: 0.5rem;
+  }
 }
 
 .postExcerpt {
