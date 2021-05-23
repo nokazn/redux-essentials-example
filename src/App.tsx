@@ -3,7 +3,7 @@ import { Navbar } from './app/Navbar';
 import { PostList } from './features/posts/PostsList';
 import { AddPostForm } from './features/posts/AddPostForm';
 import { EditPostForm } from './features/posts/EditPostForm';
-import { SinglePostPage } from './features/posts/singlePostPage';
+import { SinglePostPage } from './features/posts/SinglePostPage';
 
 export const App = () => {
   return (

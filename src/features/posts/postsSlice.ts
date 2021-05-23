@@ -5,6 +5,7 @@ interface Post {
   id: string;
   title: string;
   content: string;
+  userId: string;
 }
 
 const initialState: Post[] = [
@@ -12,11 +13,13 @@ const initialState: Post[] = [
     id: '1',
     title: 'First Post!',
     content: 'Hello!',
+    userId: '1',
   },
   {
     id: '2',
     title: 'Second Post!',
     content: 'More text',
+    userId: '2',
   },
 ];
 

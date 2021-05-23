@@ -2,6 +2,7 @@ import { useState, FC, ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, RouteChildrenProps } from 'react-router-dom';
 
+import { PostAuthor } from './PostAuthor';
 import { postUpdated, selectPost } from './postsSlice';
 
 interface Params {
@@ -22,8 +23,15 @@ export const EditPostForm: FC<RouteChildrenProps<Params> & Props> = ({ match }) 
   const onTitleChanged = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value);
   const onContentChanged = (e: ChangeEvent<HTMLTextAreaElement>) => setContent(e.target.value);
   const onSavePostClicked = () => {
-    if (postId && title && content) {
-      dispatch(postUpdated({ id: postId, title, content }));
+    if (postId && title && content && post) {
+      dispatch(
+        postUpdated({
+          id: postId,
+          title,
+          content,
+          userId: post?.userId,
+        }),
+      );
       history.push(`/post/${postId}`);
     }
   };
@@ -38,20 +46,27 @@ export const EditPostForm: FC<RouteChildrenProps<Params> & Props> = ({ match }) 
   return (
     <section>
       <h2>Edit Post</h2>
-      <form>
-        <label htmlFor='postTitle'>Post Title: </label>
-        <input
-          type='text'
-          id='postTitle'
-          name='postTitle'
-          placeholder="What's on your mind?"
-          value={title}
-          onChange={onTitleChanged}
-        />
-        <label htmlFor='postContent'>Content: </label>
-        <textarea id='postContent' name='postContent' value={content} onChange={onContentChanged} />
+      <form className='form'>
+        <div>
+          <label htmlFor='postTitle'>Post Title: </label>
+          <input
+            type='text'
+            id='postTitle'
+            name='postTitle'
+            placeholder="What's on your mind?"
+            value={title}
+            onChange={onTitleChanged}
+          />
+        </div>
+        <div>
+          <label htmlFor='postContent'>Content: </label>
+          <textarea id='postContent' name='postContent' value={content} onChange={onContentChanged} />
+        </div>
       </form>
-      <button type='button' onClick={onSavePostClicked}>
+      <p>
+        <PostAuthor userId={post.userId} />
+      </p>
+      <button type='button' onClick={onSavePostClicked} className='button'>
         Save Post
       </button>
     </section>
