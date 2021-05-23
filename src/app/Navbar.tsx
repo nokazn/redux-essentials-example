@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Navbar.module.scss';
 
 export const Navbar = () => {
@@ -6,7 +7,9 @@ export const Navbar = () => {
       <section>
         <h1>Redux Essentials Example</h1>
         <div className={styles.navContent}>
-          <div className={styles.navLinks}></div>
+          <div className={styles.navLinks}>
+            <Link to='/'>Posts</Link>
+          </div>
         </div>
       </section>
     </nav>
