@@ -24,11 +24,26 @@ const postSlice = createSlice({
   name: 'post',
   initialState,
   reducers: {
-    postAdded(state, action: PayloadAction<Omit<Post, 'id'>>) {
-      state.push({
-        ...action.payload,
-        id: nanoid(),
-      });
+    postAdded: {
+      reducer(state, action: PayloadAction<Post>) {
+        state.push(action.payload);
+      },
+      prepare(payload: Omit<Post, 'id'>) {
+        return {
+          payload: {
+            ...payload,
+            id: nanoid(),
+          },
+        };
+      },
+    },
+    postUpdated(state, action: PayloadAction<Post>) {
+      const { id, title, content } = action.payload;
+      const post = state.find((p) => p.id === id);
+      if (post != null) {
+        post.title = title;
+        post.content = content;
+      }
     },
   },
 });
@@ -40,6 +55,6 @@ export const selectPost = (postId: string | undefined) => (state: RootState) => 
 };
 
 // actions
-export const { postAdded } = postSlice.actions;
+export const { postAdded, postUpdated } = postSlice.actions;
 
 export default postSlice.reducer;

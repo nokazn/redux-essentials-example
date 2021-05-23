@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import type { FC } from 'react';
 import type { RouteChildrenProps } from 'react-router';
 
@@ -27,6 +28,7 @@ export const SinglePostPage: FC<RouteChildrenProps<Params> & Props> = ({ match }
       <article className={styles.post}>
         <h2>{post.title}</h2>
         <p className={styles.postContent}>{post.content}</p>
+        <Link to={`/posts/edit/${post.id}`}>Edit Post</Link>
       </article>
     </section>
   );
