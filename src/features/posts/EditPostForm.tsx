@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, RouteChildrenProps } from 'react-router-dom';
 
 import { PostAuthor } from './PostAuthor';
+import { TimeAgo } from './TimeAgo';
 import { postUpdated } from './postsSlice';
+import styles from './EditPostForm.module.scss';
 
 interface Params {
   postId: string;
@@ -63,7 +65,8 @@ export const EditPostForm: FC<RouteChildrenProps<Params> & Props> = ({ match }) 
           <textarea id='postContent' name='postContent' value={content} onChange={onContentChanged} />
         </div>
       </form>
-      <p>
+      <p className={styles.postDetail}>
+        <TimeAgo timestamp={post.date} />
         <PostAuthor userId={post.userId} />
       </p>
       <button type='button' onClick={onSavePostClicked} className='button'>

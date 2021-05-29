@@ -10,12 +10,9 @@
     }
 
     padding: 1rem 1rem;
+    margin-bottom: 1.25rem;
     border: 1px solid rgb(177, 174, 174);
     border-radius: 8px;
-
-    & + .postExcerpt {
-      margin-top: 1.25rem;
-    }
   }
 
   .postContent {
@@ -26,6 +23,12 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+
+    .postDetail {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 }
 

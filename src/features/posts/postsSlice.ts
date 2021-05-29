@@ -5,6 +5,7 @@ interface Post {
   title: string;
   content: string;
   userId: string;
+  date: string;
 }
 
 const initialState: Post[] = [
@@ -13,12 +14,14 @@ const initialState: Post[] = [
     title: 'First Post!',
     content: 'Hello!',
     userId: '1',
+    date: new Date(2021, 4, 25).toISOString(),
   },
   {
     id: '2',
     title: 'Second Post!',
     content: 'More text',
     userId: '2',
+    date: new Date(2021, 4, 27).toISOString(),
   },
 ];
 
@@ -30,16 +33,17 @@ const postSlice = createSlice({
       reducer(state, action: PayloadAction<Post>) {
         state.push(action.payload);
       },
-      prepare(payload: Omit<Post, 'id'>) {
+      prepare(payload: Omit<Post, 'id' | 'date'>) {
         return {
           payload: {
             ...payload,
+            date: new Date().toISOString(),
             id: nanoid(),
           },
         };
       },
     },
-    postUpdated(state, action: PayloadAction<Post>) {
+    postUpdated(state, action: PayloadAction<Omit<Post, 'date'>>) {
       const { id, title, content } = action.payload;
       const post = state.find((p) => p.id === id);
       if (post != null) {
