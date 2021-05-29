@@ -9,7 +9,7 @@
       font-size: 1.5rem;
     }
 
-    padding: 1rem 1rem;
+    padding: 0.75rem 0.75rem;
     margin-bottom: 1.25rem;
     border: 1px solid rgb(177, 174, 174);
     border-radius: 8px;
@@ -28,16 +28,15 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      margin: 0.5rem;
+    }
+
+    .postButtons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
     }
   }
-}
-
-.reactionButton {
-  border: 1px solid #e0e3e9;
-  padding: 5px 10px;
-  margin: 5px 6px 10px;
-  border-radius: 4px;
-  white-space: nowrap;
 }
 
 .mutedButton {

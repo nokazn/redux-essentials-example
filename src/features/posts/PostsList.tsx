@@ -4,6 +4,7 @@ import classnames from 'classnames';
 
 import { PostAuthor } from './PostAuthor';
 import { TimeAgo } from './TimeAgo';
+import { ReactionButtons } from './ReactionButtons';
 import styles from './PostsList.module.scss';
 
 export const PostList = () => {
@@ -20,9 +21,12 @@ export const PostList = () => {
           <TimeAgo timestamp={post.date} />
           <PostAuthor userId={post.userId} />
         </span>
-        <Link to={`/posts/${post.id}`} className={classnames('button', styles.mutedButton)}>
-          View Post
-        </Link>
+        <div className={styles.postButtons}>
+          <Link to={`/posts/${post.id}`} className={classnames('button', styles.mutedButton)}>
+            View Post
+          </Link>
+          <ReactionButtons post={post} />
+        </div>
       </div>
     </article>
   ));

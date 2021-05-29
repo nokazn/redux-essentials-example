@@ -31,7 +31,6 @@ export const EditPostForm: FC<RouteChildrenProps<Params> & Props> = ({ match }) 
           id: postId,
           title,
           content,
-          userId: post?.userId,
         }),
       );
       history.push(`/post/${postId}`);

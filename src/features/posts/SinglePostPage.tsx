@@ -5,6 +5,7 @@ import type { RouteChildrenProps } from 'react-router';
 
 import { PostAuthor } from './PostAuthor';
 import { TimeAgo } from './TimeAgo';
+import { ReactionButtons } from './ReactionButtons';
 import styles from './SinglePostPage.module.scss';
 
 interface Params {
@@ -33,7 +34,10 @@ export const SinglePostPage: FC<RouteChildrenProps<Params> & Props> = ({ match }
           <TimeAgo timestamp={post.date} />
           <PostAuthor userId={post.userId} />
         </p>
-        <Link to={`/posts/edit/${post.id}`}>Edit Post</Link>
+        <ReactionButtons post={post} />
+        <Link to={`/posts/edit/${post.id}`} className='button'>
+          Edit Post
+        </Link>
       </article>
     </section>
   );
