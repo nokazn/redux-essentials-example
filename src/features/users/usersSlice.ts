@@ -18,12 +18,6 @@ const usersSlice = createSlice({
   reducers: {},
 });
 
-// selector
-export const selectUsers = (state: RootState) => state.users;
-export const selectUser = (userId: string | undefined) => (state: RootState) => {
-  return userId != null ? state.users.find((user) => user.id === userId) : undefined;
-};
-
 // export const {} = usersSlice.actions;
 
 export default usersSlice.reducer;

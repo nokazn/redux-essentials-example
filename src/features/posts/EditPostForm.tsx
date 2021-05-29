@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, RouteChildrenProps } from 'react-router-dom';
 
 import { PostAuthor } from './PostAuthor';
-import { postUpdated, selectPost } from './postsSlice';
+import { postUpdated } from './postsSlice';
 
 interface Params {
   postId: string;
@@ -13,7 +13,7 @@ interface Props {}
 
 export const EditPostForm: FC<RouteChildrenProps<Params> & Props> = ({ match }) => {
   const postId = match?.params.postId;
-  const post = useSelector(selectPost(postId));
+  const post = useSelector((state) => state.posts.find((post) => post.id === postId));
   const dispatch = useDispatch();
   const history = useHistory();
 

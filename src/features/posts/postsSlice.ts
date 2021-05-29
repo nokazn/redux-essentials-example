@@ -51,12 +51,6 @@ const postSlice = createSlice({
   },
 });
 
-// selector
-export const selectPosts = (state: RootState) => state.posts;
-export const selectPost = (postId: string | undefined) => (state: RootState) => {
-  return postId != null ? state.posts.find((post) => post.id === postId) : undefined;
-};
-
 // actions
 export const { postAdded, postUpdated } = postSlice.actions;
 

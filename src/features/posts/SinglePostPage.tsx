@@ -4,7 +4,6 @@ import type { FC } from 'react';
 import type { RouteChildrenProps } from 'react-router';
 
 import { PostAuthor } from './PostAuthor';
-import { selectPost } from './postsSlice';
 import styles from './SinglePostPage.module.scss';
 
 interface Params {
@@ -15,7 +14,7 @@ export interface Props {}
 
 export const SinglePostPage: FC<RouteChildrenProps<Params> & Props> = ({ match }) => {
   const postId = match?.params.postId;
-  const post = useSelector(selectPost(postId));
+  const post = useSelector((state) => state.posts.find((post) => post.id === postId));
 
   if (post == null) {
     return (

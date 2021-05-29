@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 
 import { PostAuthor } from './PostAuthor';
-import { selectPosts } from './postsSlice';
 import styles from './PostsList.module.scss';
 
 export const PostList = () => {
-  const posts = useSelector(selectPosts);
+  const posts = useSelector((state) => state.posts);
   const renderedPosts = posts.map((post) => (
     <article className={styles.postExcerpt} key={post.id}>
       <h3>{post.title}</h3>
