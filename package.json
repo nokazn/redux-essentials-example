@@ -29,6 +29,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "eslint **/*.{t,j}s{,x}",
+    "lint:fix": "eslint --fix **/*.{t,j}s{,x}",
+    "tsc": "tsc --noEmit",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction, nanoid } from '@reduxjs/toolkit';
-import { RootState } from '../../app/store';
 
 interface Post {
   id: string;
